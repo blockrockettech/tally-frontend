@@ -1,7 +1,7 @@
 <template>
     <div>
+        <header-bar></header-bar>
         <h4>Assets</h4>
-        <p>{{ username }}<br/><code class="small">{{ publicKey | truncate(8) }}</code></p>
 
         <div v-if="publicAssets" class="mt-3 text-left">
             <ul>
@@ -12,25 +12,18 @@
             </ul>
         </div>
 
-        <footer>
-            <div class="row">
-                <div class="col">
-                    <router-link to="/home" class="">Home</router-link>
-                </div>
-                <div class="col">
-                    <router-link to="/assets" class="">Assets</router-link>
-                </div>
-            </div>
-        </footer>
+        <footer-tabs></footer-tabs>
     </div>
 </template>
 
 <script>
-    import { mapGetters, mapState, mapActions } from 'vuex';
+    import { mapState } from 'vuex';
+    import HeaderBar from '../components/HeaderBar';
+    import FooterTabs from '../components/FooterTabs';
 
     export default {
         name: 'assets',
-        components: {},
+        components: {FooterTabs, HeaderBar},
         computed: {
             ...mapState(['username', 'publicKey', 'publicAssets'])
         },

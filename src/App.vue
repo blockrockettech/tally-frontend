@@ -1,10 +1,5 @@
 <template>
     <div class="container">
-        <header class="text-center mt-5">
-            <router-link to="/">
-                <img class="mb-4" src="./assets/odin-Hires-icon.png" alt="" width="72" height="72">
-            </router-link>
-        </header>
         <main id="app">
             <div id="mobile-view">
                 <router-view/>

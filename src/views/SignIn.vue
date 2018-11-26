@@ -1,5 +1,10 @@
 <template>
     <form class="form-signin" novalidate @submit="onSubmit" v-if="show">
+        <header class="text-center mt-5">
+            <router-link to="/">
+                <img class="mb-4" src="../assets/odin-Hires-icon.png" alt="" width="72" height="72">
+            </router-link>
+        </header>
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <label for="inputEmail" class="sr-only">Username</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Username" required="" autofocus="" v-model="form.username">
