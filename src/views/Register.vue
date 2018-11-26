@@ -7,7 +7,9 @@
             <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" v-model="form.password">
             <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-            <p class="mt-4 text-center"><router-link to="/signin" class="">Sign in?</router-link></p>
+            <p class="mt-4 text-center">
+                <router-link to="/signin" class="">Sign in?</router-link>
+            </p>
         </form>
 
         <div v-else>
@@ -37,8 +39,12 @@
         methods: {
             onSubmit (evt) {
                 evt.preventDefault();
-                this.show = false
-                this.$store.dispatch('register', this.form.username);
+                this.show = false;
+                this.$store.dispatch('register', this.form.username)
+                    .then(() => this.$router.push('/home'))
+                    .catch((ex) => {
+                        console.log(ex);
+                    });
             }
         }
     };

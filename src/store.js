@@ -31,16 +31,21 @@ export default new Vuex.Store({
     },
     actions: {
         async ['register'] ({commit, dispatch, state, rootState}, username) {
-            try {
-                console.log(`register ${username}`);
+            console.log(`register ${username}`);
 
-            } catch (ex) {
-                console.error(ex);
+            if (username) {
+                const res = await api.post(`account/register`, {name: username});
+                console.log(res);
+
+                commit('set-username-publickey', {username: res.data.name, publicKey: res.data.publicKey});
+
+                dispatch('list-my-assets');
+                dispatch('list-all-assets');
             }
         },
         async ['signin'] ({commit, dispatch, state, rootState}, username) {
-
             console.log(`signin ${username}`);
+
             if (username) {
                 const res = await api.get(`account?name=${username.toLowerCase()}`);
                 console.log(res);
