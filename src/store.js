@@ -75,7 +75,21 @@ export default new Vuex.Store({
 
                 commit('set-all-assets', res.data);
             }
-        }
+        },
+        async ['create'] ({commit, dispatch, state, rootState}, code) {
+            console.log(`create ${state.username} -> ${code}`);
+
+            if (code) {
+                const res = await api.post(`account/assets/create`, {
+                    name : state.username,
+                    asset: code
+                });
+                console.log(res);
+
+                dispatch('list-my-assets');
+                dispatch('list-all-assets');
+            }
+        },
     },
     getters: {}
 });

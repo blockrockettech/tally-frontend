@@ -5,6 +5,7 @@ import Register from './views/Register';
 import SignIn from './views/SignIn';
 import Home from './views/Home';
 import Assets from './views/Assets';
+import CreateAsset from './views/CreateAsset';
 
 Vue.use(Router);
 
@@ -41,6 +42,11 @@ let router =  new Router({
             path: '/assets',
             name: 'assets',
             component: Assets
+        },
+        {
+            path: '/create',
+            name: 'create',
+            component: CreateAsset
         }
     ]
 });
