@@ -10,10 +10,5 @@ npm install
 npm run serve
 ```
 
-### Starts Server (API)
-```
-npm run api
-```
-
 
 

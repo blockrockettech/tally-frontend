@@ -10,13 +10,6 @@
                 <router-view/>
             </div>
         </main>
-        <footer>
-            <!--<div id="nav">-->
-            <!--<router-link to="/register" class="p-3">Register</router-link>-->
-            <!--&bull;-->
-            <!--<router-link to="/about" class="p-3">About</router-link>-->
-            <!--</div>-->
-        </footer>
     </div>
 </template>
 
@@ -45,20 +38,22 @@
         h1 {
             text-align: center;
         }
-    }
 
-    #nav {
-        padding: 30px;
-        a {
-            font-weight: bold;
-            color: #2c3e50;
-            &.router-link-exact-active {
-                color: #41c0d1;
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            max-width: 330px;
+            margin: auto;
+            height: 60px;
+            line-height: 60px;
+            background-color: $primary;
+            color: $white;
+            text-align: center;
+
+            a {
+                color: $white
             }
         }
-    }
-
-    footer {
-        text-align: center;
     }
 </style>
